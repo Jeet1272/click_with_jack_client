@@ -1,40 +1,53 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/UserContext';
 
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Image src=''></Image>
-                <Navbar.Brand className="text-warning fs-2" href="#home">Click with Jack</Navbar.Brand>
+                <Link to='/' className='text-decoration-none'>
+                    <Image style={{ width: "50px" }} className='rounded-circle mx-2 mb-2' src='https://d1csarkz8obe9u.cloudfront.net/posterpreviews/photography-logo%2C-camera-logo%2C-modern-camera-design-template-61a629a6b006a5d93947e93c81f16ce4.jpg?ts=1660982220'></Image>
+                    <Navbar.Brand className="text-warning fs-2">Click with Jack</Navbar.Brand>
+                </Link>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto me-auto">
-                        <Nav.Link href="#features">Home</Nav.Link>
-                        <Nav.Link className="mx-5" href="#pricing">Blog</Nav.Link>
+                        <Link className='text-decoration-none m-2'>Home</Link>
+                        <Link className='text-decoration-none m-2'>Blog</Link>
                         <NavDropdown title="Services" id="collasible-nav-dropdown">
-                            <NavDropdown.Item href="#action/3.1">Weddings</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">
-                                Marketing
+                            <NavDropdown.Item><Link to='/'>Wedding</Link></NavDropdown.Item>
+                            <NavDropdown.Item>
+                                <Link to='/'>Marketing</Link>
                             </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Sports</NavDropdown.Item>
+                            <NavDropdown.Item><Link to='/'>Sports</Link></NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
-                                Special Event
+                            <NavDropdown.Item>
+                                <Link to='/'>Special Event</Link>
                             </NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <Nav>
-                        <Nav.Link href="#deets">Register</Nav.Link>
-                        <Nav.Link eventKey={2} href="#memes">
-                            Log In
-                        </Nav.Link>
-                    </Nav>
+
+                    {
+                        user?.email ?
+                            <Nav>
+                                <Link className='text-decoration-none mx-2' to='/'>My reviews</Link>
+                                <Link className='text-decoration-none mx-2' to='/'>Add service</Link>
+                                <Link className='text-decoration-none' to='/logout'>Log Out</Link>
+                            </Nav>
+                            :
+                            <Nav>
+                                <Link className='text-decoration-none mx-2' to='/register'>Register</Link>
+                                <Link className='text-decoration-none' to='/login'>Log In</Link>
+                            </Nav>
+                    }
                 </Navbar.Collapse>
             </Container>
         </Navbar>
