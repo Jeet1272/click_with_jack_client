@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+
 const Services = () => {
     const [services, setServices] = useState({})
 
@@ -12,7 +13,7 @@ const Services = () => {
 
     return (
         <div>
-            <h2>Services</h2>
+            <h2>Service limit 3</h2>
         </div>
     );
 };

@@ -50,7 +50,7 @@ const Header = () => {
                         user?.uid ?
                             <Nav>
                                 <Link className='text-decoration-none mx-2' to='/'>My reviews</Link>
-                                <Link className='text-decoration-none mx-2' to='/addservices'>Add service</Link>
+                                <Link className='text-decoration-none mx-2' to='/services/add'>Add service</Link>
                                 <Link onClick={handleSignOut} className='text-decoration-none' to='/login'>Log Out</Link>
                             </Nav>
                             :

@@ -1,17 +1,45 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
 
 const AddServices = () => {
 
+    const handleServices = (event) => {
+        event.preventDefault()
+        const form = event.target
+        const title = form.title.value;
+        const img = form.img.value;
+        const price = form.price.value;
+        const details = form.details.value;
 
+        const service = { title, img, price, details }
+        console.log(service)
+
+        fetch('http://localhost:5000/services', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(service)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    alert('Service added successfully')
+                    form.reset()
+                }
+
+            })
+    }
 
 
     return (
-        <form className='w-50 mx-auto my-5'>
+        <form onSubmit={handleServices} className='w-50 mx-auto my-5'>
             <InputGroup className="mb-3">
                 <InputGroup.Text id="basic-addon1">Service Name</InputGroup.Text>
                 <Form.Control
+                    name="title"
                     placeholder="Service name"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
@@ -23,19 +51,20 @@ const AddServices = () => {
                 <InputGroup.Text id="basic-addon3">
                     https://example.com/users/
                 </InputGroup.Text>
-                <Form.Control id="basic-url" aria-describedby="basic-addon3" />
+                <Form.Control id="basic-url" name="img" aria-describedby="basic-addon3" />
             </InputGroup>
 
             <InputGroup className="mb-3">
                 <InputGroup.Text>$</InputGroup.Text>
-                <Form.Control aria-label="Amount (to the nearest dollar)" />
+                <Form.Control aria-label="Amount (to the nearest dollar)" name="price" />
                 <InputGroup.Text>Price</InputGroup.Text>
             </InputGroup>
 
             <InputGroup>
                 <InputGroup.Text>Details</InputGroup.Text>
-                <Form.Control as="textarea" aria-label="With textarea" />
+                <Form.Control as="textarea" aria-label="With textarea" name="details" />
             </InputGroup>
+            <Button className='mt-3' variant="info" type="submit">Add Service</Button>
         </form>
     );
 };
