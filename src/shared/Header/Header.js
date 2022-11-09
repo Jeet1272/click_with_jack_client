@@ -9,7 +9,18 @@ import { AuthContext } from '../../context/UserContext';
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                // Sign-out successful.
+            }).catch((error) => {
+                console.error(error)
+            });
+
+    }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -20,8 +31,8 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto me-auto">
-                        <Link className='text-decoration-none m-2'>Home</Link>
-                        <Link className='text-decoration-none m-2'>Blog</Link>
+                        <Link to='/' className='text-decoration-none m-2'>Home</Link>
+                        <Link to='/blog' className='text-decoration-none m-2'>Blog</Link>
                         <NavDropdown title="Services" id="collasible-nav-dropdown">
                             <NavDropdown.Item><Link to='/'>Wedding</Link></NavDropdown.Item>
                             <NavDropdown.Item>
@@ -36,16 +47,16 @@ const Header = () => {
                     </Nav>
 
                     {
-                        user?.email ?
+                        user?.uid ?
                             <Nav>
                                 <Link className='text-decoration-none mx-2' to='/'>My reviews</Link>
                                 <Link className='text-decoration-none mx-2' to='/'>Add service</Link>
-                                <Link className='text-decoration-none' to='/logout'>Log Out</Link>
+                                <Link onClick={handleSignOut} className='text-decoration-none' to='/login'>Log Out</Link>
                             </Nav>
                             :
                             <Nav>
                                 <Link className='text-decoration-none mx-2' to='/register'>Register</Link>
-                                <Link className='text-decoration-none' to='/login'>Log In</Link>
+                                <Link className='text-decoration-none mx-2' to='/login'>Log In</Link>
                             </Nav>
                     }
                 </Navbar.Collapse>

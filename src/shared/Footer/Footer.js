@@ -11,9 +11,9 @@ const Footer = () => {
                     <Link to='/'>FAQ</Link><br></br>
                 </div>
                 <div className='d-grid text-center w-50'>
-                    <Link to='/'>Service</Link>
-                    <Link to='/'>Service</Link>
-                    <Link to='/'>Service</Link>
+                    <Link to='/'>Terms & Conditions</Link>
+                    <Link to='/'>Privacy Policy</Link>
+                    <Link to='/'>My Story</Link>
                 </div>
 
             </div>
