@@ -7,12 +7,12 @@ const Service = ({ service }) => {
     return (
         <div>
             <Card className='w-50 mx-auto my-3'>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Img variant="top" src={img} />
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <h5>Price: ${price}</h5>
                     <Card.Text>
-                        {details.slice(0, 5)}...
+                        {details.slice(0, 100)}...
                     </Card.Text>
                     <Button variant="primary">View Details</Button>
                 </Card.Body>

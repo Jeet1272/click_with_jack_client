@@ -1,12 +1,16 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 
 
 const Banner = () => {
     return (
         <div>
-
-            {/* <img className='w-100 position-absolute' src="https://images.cdn4.stockunlimited.net/preview1300/web-banner-with-camera-shutter-design_1955118.jpg" alt="" />
-            <h3 className='position-relative'>Banner Text</h3> */}
+            <Card className="bg-dark text-white">
+                <Card.Img src="https://equinoxx.in/images/Courses-Banner/photography.jpg" alt="Card image" />
+                <Card.ImgOverlay>
+                    <Card.Title className='fs-1 text-warning mt-5 ms-5 pt-5 ps-5'>Capture Your<br></br><span className='my-5'>Priceless</span><br></br>Emotions</Card.Title>
+                </Card.ImgOverlay>
+            </Card>
         </div>
     );
 };
