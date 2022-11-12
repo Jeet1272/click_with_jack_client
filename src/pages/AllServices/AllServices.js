@@ -5,7 +5,7 @@ import Service from '../Service/Service';
 const AllServices = () => {
     const services = useLoaderData()
     return (
-        <div>
+        <div className='w-50 mx-auto my-3'>
             {
                 services.map(service => <Service key={service._id} service={service}></Service>)
             }
