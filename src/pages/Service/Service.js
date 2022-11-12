@@ -19,7 +19,7 @@ const Service = ({ service }) => {
                     <Card.Text>
                         {details.slice(0, 89)}...
                     </Card.Text>
-                    <Link to={`/services/${_id}`}><Button variant="primary">View Details</Button></Link>
+                    <Link to={`/service/${_id}`}><Button variant="primary">View Details</Button></Link>
                 </Card.Body>
             </Card>
         </div>
