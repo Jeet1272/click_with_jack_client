@@ -6,6 +6,7 @@ import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import ServiceDetails from "../pages/ServiceDetails/ServiceDetails";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -36,7 +37,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/services/add',
-                element: <AddServices></AddServices>
+                element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
+            },
+            {
+                path: '*',
+                element: <h1 className="text-center my-5">Nothing found on this route(404)</h1>
             }
         ]
     }
