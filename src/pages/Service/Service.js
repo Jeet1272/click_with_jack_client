@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import Card from 'react-bootstrap/Card';
 import './Service.css'
 
@@ -8,7 +9,9 @@ const Service = ({ service }) => {
     return (
         <div>
             <Card className='m-2 single-service'>
-                <Card.Img variant="top" src={img} />
+                <PhotoProvider>
+                    <PhotoView src={img}><Card.Img variant="top" src={img} /></PhotoView>
+                </PhotoProvider>
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <h5>Price: ${price}</h5>
