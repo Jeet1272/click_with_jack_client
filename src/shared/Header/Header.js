@@ -33,17 +33,6 @@ const Header = () => {
                     <Nav className="ms-auto me-auto">
                         <Link to='/' className='text-decoration-none m-2'>Home</Link>
                         <Link to='/blog' className='text-decoration-none m-2'>Blog</Link>
-                        <NavDropdown title="Services" id="collasible-nav-dropdown">
-                            <NavDropdown.Item><Link to='/'>Wedding</Link></NavDropdown.Item>
-                            <NavDropdown.Item>
-                                <Link to='/'>Marketing</Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item><Link to='/'>Sports</Link></NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item>
-                                <Link to='/'>Special Event</Link>
-                            </NavDropdown.Item>
-                        </NavDropdown>
                     </Nav>
 
                     {
