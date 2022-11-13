@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import AddServices from "../pages/AddServices/AddServices";
 import AllServices from "../pages/AllServices/AllServices";
+import Blog from "../pages/Blog/Blog";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
             {
                 path: '/services/add',
                 element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             },
             {
                 path: '*',
