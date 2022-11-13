@@ -4,12 +4,15 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
+import useTitle from '../../hooks/useTitle';
 
 
 const Login = () => {
     const { userSignIn, googleSignIn, githubSignIn } = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider()
+
+    useTitle('Log In')
 
     const handleSignIn = (event) => {
         event.preventDefault();

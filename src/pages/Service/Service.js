@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
     const { _id, title, img, price, details } = service
+
     return (
         <div>
             <Card className='m-2 single-service'>

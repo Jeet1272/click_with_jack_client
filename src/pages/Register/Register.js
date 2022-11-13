@@ -5,9 +5,11 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/UserContext';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext)
+    useTitle('Register')
 
     const handleRegister = (event) => {
         event.preventDefault();

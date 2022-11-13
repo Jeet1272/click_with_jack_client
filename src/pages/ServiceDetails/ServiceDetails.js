@@ -2,11 +2,14 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import Card from 'react-bootstrap/Card';
+import useTitle from '../../hooks/useTitle';
 
 const ServiceDetails = () => {
 
     const service = useLoaderData()
     const { _id, title, img, price, details } = service
+
+    useTitle('Service Details')
 
     return (
         <div className='d-flex'>
