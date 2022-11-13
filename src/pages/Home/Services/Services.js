@@ -9,7 +9,7 @@ const Services = () => {
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/services/limit')
+        fetch('https://click-with-jack-server.vercel.app/services/limit')
             .then(res => res.json())
             .then(data => setServices(data))
             .catch(err => console.error(err))

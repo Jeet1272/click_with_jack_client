@@ -18,7 +18,7 @@ const AddServices = () => {
         const service = { title, img, price, details }
         console.log(service)
 
-        fetch('http://localhost:5000/services', {
+        fetch('https://click-with-jack-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

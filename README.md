@@ -1,3 +1,19 @@
+# Website Name
+
+Click With Jack
+
+# Live Link
+
+ https://click-with-jack.web.app
+
+ # Project's features and functionalities
+
+* It's a photographer website
+* Have different type of service of photographer
+* Also have pictures of recent work 
+* Present cameras of photographer
+* User login functionality
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

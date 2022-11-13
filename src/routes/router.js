@@ -29,12 +29,12 @@ export const router = createBrowserRouter([
             {
                 path: '/services',
                 element: <AllServices></AllServices>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://click-with-jack-server.vercel.app/services')
             },
             {
                 path: '/service/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://click-with-jack-server.vercel.app/service/${params.id}`)
             },
             {
                 path: '/services/add',
